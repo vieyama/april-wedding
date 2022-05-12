@@ -1,0 +1,103 @@
+.protocol-section {
+  text-align: center;
+  margin-top: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+
+  .icon {
+    width: 50px;
+    margin-right: 50px;
+  }
+
+  .protocol {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+
+  .title {
+    font-family: "Ms Madi", cursive;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+}
+
+.couple-section {
+  margin-top: 15vh;
+  background: url("/bg3.png") center center no-repeat;
+  background-size: cover !important;
+  text-align: center;
+  padding: 50px;
+
+  @media (max-width: 575px) {
+    padding: 20px; /* width of container */
+  }
+
+  .flower-img {
+    width: 300px;
+  }
+
+  .img {
+    border-radius: 10px;
+    width: 22vw; /* width of container */
+    height: 30vh; /* height of container */
+    object-fit: cover;
+
+    @media (max-width: 991px) {
+      width: 28vw; /* width of container */
+    }
+
+    @media (max-width: 767px) {
+      width: 40vw; /* width of container */
+    }
+
+    @media (max-width: 575px) {
+      width: 60vw; /* width of container */
+    }
+  }
+
+  .brides {
+    font-family: "Ms Madi", cursive;
+    font-size: 2rem;
+  }
+
+  .bride-img {
+    width: 150px;
+    border-radius: 15px;
+  }
+
+  .name {
+    font-family: "Ms Madi", cursive;
+    color: $primary-color;
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 0px;
+    margin-top: 20px;
+  }
+
+  .fullname {
+    font-family: "Lora", serif;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  p,
+  b {
+    font-family: "Lora", serif;
+    font-size: 17px;
+  }
+
+  .link {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+.ant-list-grid .ant-col > .ant-list-item:hover {
+  transform: scale(1.1);
+  transition-timing-function: ease-in-out;
+}
