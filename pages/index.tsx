@@ -9,6 +9,7 @@ import {
   HeartOutlined,
   InstagramOutlined,
   QrcodeOutlined,
+  SoundOutlined,
 } from "@ant-design/icons";
 import {
   Button,
@@ -27,7 +28,8 @@ import Head from "next/head";
 import Link from "next/link";
 import Countdown from "react-countdown";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useSound from "use-sound";
 
 const Home: NextPage = (props: any) => {
   const protocolData = [
@@ -123,13 +125,22 @@ const Home: NextPage = (props: any) => {
     setDisplayModal(src);
   };
 
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
+  const [playMusic, setPlayMusic] = useState(false);
+
+  const [play, { stop }]: any = useSound("/music.mp3");
+
+  useEffect(() => {
+    if (playMusic) {
+      play();
+    } else {
+      stop();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [playMusic]);
 
   return (
     <div className="container">
@@ -140,7 +151,7 @@ const Home: NextPage = (props: any) => {
       </Head>
 
       {/* Header Cover*/}
-      <HeaderComponent />
+      <HeaderComponent setPlayMusic={setPlayMusic} />
 
       {/* Header Section */}
       <section
@@ -633,16 +644,6 @@ const Home: NextPage = (props: any) => {
           />
         </div>
       </section>
-      {/* <footer className="footer">
-        <span>Best Regards,</span>
-        <h1>Yovie & Brigita</h1>
-        <div className="custom-shape-divider-bottom-1610288749">
-          <img
-            src="https://datengdong.com/themes/winterblue/images/mask.png"
-            alt=""
-          />
-        </div>
-      </footer> */}
       <br />
       <br />
       <br />
@@ -653,6 +654,16 @@ const Home: NextPage = (props: any) => {
       <footer>
         <h1 className="footer-end">Brisya&apos;s Wedding</h1>
       </footer>
+
+      <button className="float" onClick={() => setPlayMusic(!playMusic)}>
+        {/* <SoundOutlined style={{ fontSize: 20 }} /> */}
+        <img
+          src={playMusic ? "/audio-speaker.png" : "/mute.png"}
+          className="invert"
+          alt=""
+          style={{ width: 20 }}
+        />
+      </button>
     </div>
   );
 };

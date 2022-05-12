@@ -1,7 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Water+Brush&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Water+Brush&display=swap");
 
 @import "./header.scss";
 @import "./protocol-section.scss";
 @import "./schedule.scss";
+
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  border: none;
+  background-color: $primary-color;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  cursor: pointer;
+}
+
+.my-float {
+  margin-top: 22px;
+}
+
+.invert {
+  filter: invert(100%);
+}
