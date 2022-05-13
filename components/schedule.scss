@@ -32,6 +32,11 @@
   font-size: 2rem;
   font-weight: 700;
 }
+
+.guest-book::before {
+  background: #dadada !important;
+}
+
 .location::before {
   content: "";
   width: 100%;
@@ -168,4 +173,25 @@
   font-size: 25px;
   font-weight: bold;
   text-align: center;
+}
+
+.guest-container {
+  text-align: left;
+  .guest-list {
+    max-height: 45vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}
+
+.guest-form {
+  text-align: left;
+
+  .caption {
+    color: black !important;
+  }
+
+  .input-guest {
+    border-radius: 15px;
+  }
 }

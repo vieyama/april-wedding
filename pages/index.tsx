@@ -20,7 +20,12 @@ import {
   Modal,
   Row,
   Space,
+  Form,
+  Input,
+  Radio,
+  Avatar,
 } from "antd";
+import omit from "lodash/omit";
 import HeaderComponent from "components/Header";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -30,7 +35,24 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { useEffect, useState } from "react";
 import useSound from "use-sound";
 
+import { PrismaClient } from "@prisma/client";
+import getAcronym from "utils/acronym";
+import { toNumber } from "lodash";
+
+const prisma = new PrismaClient();
+
+export async function getServerSideProps() {
+  const guest = await prisma.guest.findMany();
+
+  return {
+    props: {
+      guest,
+    },
+  };
+}
+
 const Home: NextPage = (props: any) => {
+  const [guest, setGuest] = useState(props?.guest);
   // const protocolData = [
   //   {
   //     img: "/protocol-covid/002-soap.png",
@@ -132,14 +154,50 @@ const Home: NextPage = (props: any) => {
 
   const [play, { stop }]: any = useSound("/music.mp3");
 
-  useEffect(() => {
-    if (playMusic) {
-      play();
-    } else {
-      stop();
+  // useEffect(() => {
+  //   if (playMusic) {
+  //     play();
+  //   } else {
+  //     stop();
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [playMusic]);
+
+  /* eslint-disable no-template-curly-in-string */
+  const validateMessages = {
+    required: "${label} is required!",
+    types: {
+      email: "${label} is not a valid email!",
+      number: "${label} is not a valid number!",
+    },
+    number: {
+      range: "${label} must be between ${min} and ${max}",
+    },
+  };
+  /* eslint-enable no-template-curly-in-string */
+
+  const [form] = Form.useForm();
+
+  const onFinish = async (values: any) => {
+    const data = {
+      ...omit(values, "countGuest"),
+      ...(values?.countGuest !== undefined && {
+        countGuest: toNumber(values?.countGuest),
+      }),
+    };
+
+    const response = await fetch("/api/guest", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [playMusic]);
+    setGuest([data, ...guest]);
+    form.resetFields();
+    return await response.json();
+  };
 
   return (
     <div className="container">
@@ -306,7 +364,7 @@ const Home: NextPage = (props: any) => {
         className="location"
         style={{
           background:
-            "background: url('/gallery/gallery-13.jpg') center center no-repeat;background-size: cover",
+            "url('/gallery/gallery-13.jpg') center center no-repeat;background-size: cover",
         }}
       >
         <div className="custom-shape-divider-top-1610288850">
@@ -628,6 +686,148 @@ const Home: NextPage = (props: any) => {
         </Row>
       </div>
       <br />
+      <br />
+      <br />
+
+      <section
+        className="location guest-book"
+        style={{
+          background:
+            "url('/bg3.png') center center no-repeat;background-size: cover",
+        }}
+      >
+        <div className="custom-shape-divider-top-1610288850">
+          <img
+            src="https://datengdong.com/themes/winterblue/images/mask_bottom.png"
+            alt="brush"
+          />
+        </div>
+        <div className="container py-5">
+          <img
+            src="/flower.png"
+            alt="list"
+            style={{ maxHeight: 100 }}
+            data-aos="fade-up"
+            data-aos-easing="ease-in-back"
+            data-aos-delay="300"
+          />
+          <div
+            className="d-flex w-100 align-items-center justify-content-center mb-5 aos-init aos-animate"
+            data-aos="fade-up"
+            data-aos-easing="ease-in-back"
+            data-aos-delay="300"
+          >
+            <h2
+              className="caption"
+              data-aos="fade-up"
+              data-aos-easing="ease-in-back"
+              data-aos-delay="300"
+            >
+              Guest Book
+            </h2>
+            <Row
+              style={{
+                border: "1px solid",
+                margin: 30,
+                borderRadius: 15,
+                padding: 20,
+              }}
+              data-aos="fade-up"
+              data-aos-easing="ease-in-back"
+              data-aos-delay="300"
+              gutter={[16, 16]}
+            >
+              <Col lg={12} md={12} sm={24} xs={24} className="guest-form">
+                <Form
+                  layout="vertical"
+                  name="nest-messages"
+                  onFinish={onFinish}
+                  validateMessages={validateMessages}
+                  form={form}
+                >
+                  <Form.Item
+                    name="name"
+                    label="Nama"
+                    rules={[{ required: true }]}
+                  >
+                    <Input size="large" className="input-guest" />
+                  </Form.Item>
+                  <Form.Item
+                    name="message"
+                    label="Pesan"
+                    rules={[{ required: true }]}
+                  >
+                    <Input.TextArea className="input-guest" rows={4} />
+                  </Form.Item>
+                  <Form.Item
+                    name="join"
+                    label="Apakah Anda berkenan hadir?"
+                    rules={[{ required: true }]}
+                  >
+                    <Radio.Group>
+                      <Radio value={true}>Hadir</Radio>
+                      <Radio value={false}>Tidak Hadir</Radio>
+                    </Radio.Group>
+                  </Form.Item>
+                  <Form.Item name="countGuest" label="Jumlah Tamu">
+                    <Radio.Group>
+                      <Radio value="1">1</Radio>
+                      <Radio value="2">2</Radio>
+                    </Radio.Group>
+                  </Form.Item>
+
+                  <Form.Item>
+                    <Button type="primary" htmlType="submit">
+                      Submit
+                    </Button>
+                  </Form.Item>
+                </Form>
+              </Col>
+              <Col lg={12} md={12} sm={24} xs={24} className="guest-container">
+                <List
+                  itemLayout="horizontal"
+                  className="guest-list"
+                  dataSource={guest}
+                  renderItem={(item: any) => {
+                    const { color, acronym } = getAcronym(
+                      item?.name || "",
+                      item?.id
+                    );
+                    return (
+                      <List.Item>
+                        <List.Item.Meta
+                          avatar={
+                            <Avatar
+                              style={{
+                                backgroundImage: color,
+                                display: "inline-flex",
+                                alignItems: "center",
+                              }}
+                            >
+                              <span className="avatar-name">{acronym}</span>
+                            </Avatar>
+                          }
+                          title={<a href="https://ant.design">{item.name}</a>}
+                          description={item?.message}
+                        />
+                      </List.Item>
+                    );
+                  }}
+                />
+              </Col>
+            </Row>
+          </div>
+        </div>
+        <div className="custom-shape-divider-bottom-1614342402">
+          <img
+            src="https://datengdong.com/themes/winterblue/images/mask.png"
+            alt="brush"
+          />
+        </div>
+      </section>
+
+      <br />
+
       <section
         style={{ background: "url(photo_bg.jpeg) center center no-repeat" }}
         className="curved page-holder"

@@ -3,7 +3,7 @@ import { MailOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import React, { useRef } from "react";
 
-const HeaderComponent = ({ setPlayMusic, playMusic }: any) => {
+const HeaderComponent = ({ setPlayMusic, playMusic = false }: any) => {
   const headerRef: any = useRef();
 
   const handleClick = () => {
