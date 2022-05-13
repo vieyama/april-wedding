@@ -3,13 +3,13 @@ import { MailOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import React, { useRef } from "react";
 
-const HeaderComponent = ({ setPlayMusic }: any) => {
+const HeaderComponent = ({ setPlayMusic, playMusic }: any) => {
   const headerRef: any = useRef();
 
   const handleClick = () => {
     headerRef.current.style.height = "0";
     window.scrollTo(0, 0);
-    setPlayMusic(true);
+    setPlayMusic(!playMusic);
   };
   return (
     <div className="header-section" ref={headerRef}>
