@@ -15,7 +15,7 @@
 # production
 /build
 
-/utils/db/serviceAccountKey.json
+# /utils/db/serviceAccountKey.json
 
 # misc
 .DS_Store
