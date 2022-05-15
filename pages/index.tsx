@@ -35,24 +35,25 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { useEffect, useState } from "react";
 import useSound from "use-sound";
 
-import { PrismaClient } from "@prisma/client";
 import getAcronym from "utils/acronym";
-import { toNumber } from "lodash";
+import { filter, isEmpty, toNumber } from "lodash";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
-const prisma = new PrismaClient();
-
-export async function getServerSideProps() {
-  const guest = await prisma.guest.findMany();
-
-  return {
-    props: {
-      guest,
-    },
-  };
-}
 
 const Home: NextPage = (props: any) => {
-  const [guest, setGuest] = useState(props?.guest);
+  const [guest, setGuest]: any = useState([]);
+
+  const getData = async () => {
+    await axios.get("/api/guest/guest").then((res: any) => {
+      setGuest(filter(res?.data?.guestData, (e) => !isEmpty(e?.name)));
+    });
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   // const protocolData = [
   //   {
   //     img: "/protocol-covid/002-soap.png",
@@ -179,24 +180,18 @@ const Home: NextPage = (props: any) => {
   const [form] = Form.useForm();
 
   const onFinish = async (values: any) => {
-    const data = {
+    const data: any = {
+      id: uuidv4(),
       ...omit(values, "countGuest"),
       ...(values?.countGuest !== undefined && {
         countGuest: toNumber(values?.countGuest),
       }),
     };
 
-    const response = await fetch("/api/guest", {
-      method: "POST",
-      body: JSON.stringify(data),
+    await axios.post("/api/guest", data).then(() => {
+      getData();
+      form.resetFields();
     });
-
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-    setGuest([data, ...guest]);
-    form.resetFields();
-    return await response.json();
   };
 
   return (
@@ -790,7 +785,7 @@ const Home: NextPage = (props: any) => {
                 xs={24}
                 className="guest-container"
                 style={{
-                  overflowY: guest.length < 6 ? "hidden" : "scroll",
+                  overflowY: guest?.length < 6 ? "hidden" : "scroll",
                 }}
               >
                 <List
