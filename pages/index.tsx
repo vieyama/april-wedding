@@ -154,14 +154,14 @@ const Home: NextPage = (props: any) => {
 
   const [play, { stop }]: any = useSound("/music.mp3");
 
-  // useEffect(() => {
-  //   if (playMusic) {
-  //     play();
-  //   } else {
-  //     stop();
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [playMusic]);
+  useEffect(() => {
+    if (playMusic) {
+      play();
+    } else {
+      stop();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [playMusic]);
 
   /* eslint-disable no-template-curly-in-string */
   const validateMessages = {
@@ -783,7 +783,16 @@ const Home: NextPage = (props: any) => {
                   </Form.Item>
                 </Form>
               </Col>
-              <Col lg={12} md={12} sm={24} xs={24} className="guest-container">
+              <Col
+                lg={12}
+                md={12}
+                sm={24}
+                xs={24}
+                className="guest-container"
+                style={{
+                  overflowY: guest.length < 6 ? "hidden" : "scroll",
+                }}
+              >
                 <List
                   itemLayout="horizontal"
                   className="guest-list"
