@@ -1,10 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { MailOutlined } from "@ant-design/icons";
 import { Button } from "antd";
+import { useRouter } from "next/router";
 import React, { useRef } from "react";
 
 const HeaderComponent = ({ setPlayMusic, playMusic = false }: any) => {
   const headerRef: any = useRef();
+  const router = useRouter();
 
   const handleClick = () => {
     headerRef.current.style.height = "0";
@@ -27,7 +29,7 @@ const HeaderComponent = ({ setPlayMusic, playMusic = false }: any) => {
           KEPADA YTH <br /> BAPAK/IBU/SAUDARA/I <br />
         </h4>
 
-        <h4 className="person">Yovie Fesya Pratama</h4>
+        <h4 className="person">{router?.query?.to || ""}</h4>
 
         <Button
           type="primary"
