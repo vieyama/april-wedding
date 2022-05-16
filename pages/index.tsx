@@ -565,7 +565,7 @@ const Home: NextPage = (props: any) => {
           data-aos="zoom-in-up"
         />
         <br />
-        <GiftOutlined style={{ fontSize: 40 }} />
+        <GiftOutlined style={{ fontSize: 40 }} data-aos="zoom-in-up" />
         <h2
           className="brides"
           data-aos="fade-up"

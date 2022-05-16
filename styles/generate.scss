@@ -1,0 +1,22 @@
+.left {
+  background: url(https://preview.colorlib.com/theme/bootstrap/login-form-02/images/xbg_1.jpg.pagespeed.ic.R5QWIA8_nZ.webp);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.right {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 100px;
+  width: 100%;
+
+  @media (max-width: 500px) {
+    padding: 30px !important;
+  }
+  .ant-form {
+    width: 100%;
+  }
+}
