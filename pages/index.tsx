@@ -40,7 +40,6 @@ import { filter, isEmpty, toNumber } from "lodash";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
-
 const Home: NextPage = (props: any) => {
   const [guest, setGuest]: any = useState([]);
 
@@ -80,28 +79,28 @@ const Home: NextPage = (props: any) => {
 
   const data = [
     {
-      img: "/gallery/gallery-1.jpg",
+      img: "/gallery/DSC01866-min.JPG",
     },
     {
-      img: "/gallery/gallery-2.jpg",
+      img: "/gallery/DSC01868-min.JPG",
     },
     {
-      img: "/gallery/gallery-3.jpg",
+      img: "/gallery/DSC01869-min.JPG",
     },
     {
-      img: "/gallery/gallery-4.jpg",
+      img: "/gallery/DSC01873-min.JPG",
     },
     {
-      img: "/gallery/gallery-5.jpg",
+      img: "/gallery/DSC01877-min.JPG",
     },
     {
-      img: "/gallery/gallery-6.jpg",
+      img: "/gallery/DSC01889-min.JPG",
     },
     {
-      img: "/gallery/gallery-7.jpg",
+      img: "/gallery/DSC01883-min.JPG",
     },
     {
-      img: "/gallery/gallery-8.jpg",
+      img: "/gallery/DSC01905-min.JPG",
     },
   ];
 
@@ -359,7 +358,7 @@ const Home: NextPage = (props: any) => {
         className="location"
         style={{
           background:
-            "url('/gallery/gallery-13.jpg') center center no-repeat;background-size: cover",
+            "url('/gallery/DSC01892-min.JPG') center center no-repeat;background-size: cover",
         }}
       >
         <div className="custom-shape-divider-top-1610288850">
@@ -484,7 +483,7 @@ const Home: NextPage = (props: any) => {
       <section
         className="parallax text-center mt-5"
         style={{
-          backgroundImage: "url(/gallery/gallery-17.jpg)",
+          backgroundImage: "url(/gallery/DSC01892-min.JPG)",
         }}
       >
         <div className="custom-shape-divider-top-1610288850">
@@ -833,19 +832,19 @@ const Home: NextPage = (props: any) => {
       <br />
 
       <section
-        style={{ background: "url(photo_bg.jpeg) center center no-repeat" }}
-        className="curved page-holder"
+        style={{ background: "url(/footerbg.png)" }}
+        className="curved page-holder aos-init footer-bg aos-animate"
         id="particles-js"
         data-aos="zoom-in-up"
         data-aos-easing="ease-in-back"
         data-aos-delay="300"
       >
         <div className="title-wrapper title-footer title-section text-center">
-          <h2 className="greeting" data-aos="fade-up">
+          <h2 className="greeting aos-init aos-animate" data-aos="fade-up">
             Best Regards,
           </h2>
-          <h1 className="brides-name" data-aos="fade-up">
-            Yovie & Brigita
+          <h1 className="brides-name aos-init aos-animate" data-aos="fade-up">
+            Yovie &amp; Brigita
           </h1>
         </div>
         <div className="custom-shape-divider-bottom-1610288749">
