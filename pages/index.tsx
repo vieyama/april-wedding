@@ -79,28 +79,41 @@ const Home: NextPage = (props: any) => {
 
   const data = [
     {
-      img: "/gallery/DSC01866-min.JPG",
+      img: "/gallery/photo_2022-05-17 10.49.06.jpeg",
     },
     {
-      img: "/gallery/DSC01868-min.JPG",
+      img: "/gallery/photo_2022-05-17 10.49.08.jpeg",
     },
     {
-      img: "/gallery/DSC01869-min.JPG",
+      img: "/gallery/photo_2022-05-17 10.49.09.jpeg",
     },
     {
-      img: "/gallery/DSC01873-min.JPG",
+      img: "/gallery/photo_2022-05-17 10.49.10.jpeg",
     },
     {
-      img: "/gallery/DSC01877-min.JPG",
+      img: "/gallery/photo_2022-05-17 10.49.11.jpeg",
     },
     {
-      img: "/gallery/DSC01889-min.JPG",
+      img: "/gallery/photo_2022-05-17 10.49.13.jpeg",
     },
     {
-      img: "/gallery/DSC01883-min.JPG",
+      img: "/gallery/photo_2022-05-17 10.49.14.jpeg",
     },
     {
-      img: "/gallery/DSC01905-min.JPG",
+      img: "/gallery/photo_2022-05-17 10.49.26.jpeg",
+    },
+
+    {
+      img: "/gallery/photo_2022-05-17 10.49.25.jpeg",
+    },
+    {
+      img: "/gallery/photo_2022-05-17 10.49.24.jpeg",
+    },
+    {
+      img: "/gallery/photo_2022-05-17 10.49.21.jpeg",
+    },
+    {
+      img: "/gallery/photo_2022-05-17 10.49.20.jpeg",
     },
   ];
 
@@ -456,28 +469,31 @@ const Home: NextPage = (props: any) => {
         >
           Our Gallery
         </h2>
-        <List
-          grid={{
-            gutter: 16,
-            xs: 1,
-            sm: 2,
-            md: 3,
-            lg: 4,
-            xl: 4,
-            xxl: 4,
-          }}
-          dataSource={data}
-          renderItem={(item) => (
-            <List.Item
-              className="list-img"
-              data-aos="fade-zoom-in"
-              data-aos-easing="ease-in-back"
-              data-aos-delay="300"
-            >
-              <Image src={item?.img} className="img" alt="" />
-            </List.Item>
-          )}
-        />
+
+        <Image.PreviewGroup>
+          <List
+            grid={{
+              gutter: 16,
+              xs: 1,
+              sm: 2,
+              md: 3,
+              lg: 4,
+              xl: 4,
+              xxl: 4,
+            }}
+            dataSource={data}
+            renderItem={(item) => (
+              <List.Item
+                className="list-img"
+                data-aos="fade-zoom-in"
+                data-aos-easing="ease-in-back"
+                data-aos-delay="300"
+              >
+                <Image src={item?.img} className="img" alt="" />
+              </List.Item>
+            )}
+          />
+        </Image.PreviewGroup>
       </div>
 
       <section
