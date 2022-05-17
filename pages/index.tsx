@@ -371,7 +371,7 @@ const Home: NextPage = (props: any) => {
         className="location"
         style={{
           background:
-            "url('/gallery/DSC01892-min.JPG') center center no-repeat;background-size: cover",
+            "url('/gallery/photo_2022-05-17 10.49.19.jpeg') center center no-repeat;background-size: cover",
         }}
       >
         <div className="custom-shape-divider-top-1610288850">
@@ -499,7 +499,12 @@ const Home: NextPage = (props: any) => {
       <section
         className="parallax text-center mt-5"
         style={{
-          backgroundImage: "url(/gallery/DSC01892-min.JPG)",
+          background:
+            "url('/gallery/photo_2022-05-17 10.49.19.jpeg') center no-repeat; background-size: cover",
+          height: "45vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <div className="custom-shape-divider-top-1610288850">
@@ -851,7 +856,7 @@ const Home: NextPage = (props: any) => {
         style={{ background: "url(/footerbg.png)" }}
         className="curved page-holder aos-init footer-bg aos-animate"
         id="particles-js"
-        data-aos="zoom-in-up"
+        data-aos="fade-zoom-in"
         data-aos-easing="ease-in-back"
         data-aos-delay="300"
       >
