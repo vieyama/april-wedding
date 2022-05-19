@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import {
   CalendarOutlined,
-  CopyOutlined,
   EnvironmentFilled,
   FieldTimeOutlined,
   GiftOutlined,
@@ -16,7 +15,6 @@ import {
   Col,
   Image,
   List,
-  message,
   Modal,
   Row,
   Space,
@@ -24,6 +22,7 @@ import {
   Input,
   Radio,
   Avatar,
+  Typography,
 } from "antd";
 import omit from "lodash/omit";
 import HeaderComponent from "components/Header";
@@ -31,7 +30,6 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Countdown from "react-countdown";
-import CopyToClipboard from "react-copy-to-clipboard";
 import { useEffect, useState } from "react";
 import useSound from "use-sound";
 
@@ -40,6 +38,7 @@ import { filter, isEmpty, toNumber } from "lodash";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
+const { Paragraph } = Typography;
 const Home: NextPage = (props: any) => {
   const [guest, setGuest]: any = useState([]);
 
@@ -622,13 +621,7 @@ const Home: NextPage = (props: any) => {
                 <img src="https://menica.pro/img/logos/logo-bca.png" alt="" />
               }
             >
-              0462485776
-              <CopyToClipboard
-                text="0462485776"
-                onCopy={() => message.success("Copy Berhasil!")}
-              >
-                <Button icon={<CopyOutlined />} type="link" />
-              </CopyToClipboard>
+              <Paragraph copyable>0462485776</Paragraph>
               a/n Yovie Fesya Pratama
               <br />
               <br />
@@ -661,13 +654,7 @@ const Home: NextPage = (props: any) => {
                 <img src="https://menica.pro/img/logos/logo-bri.png" alt="" />
               }
             >
-              667201028363534{" "}
-              <CopyToClipboard
-                text="667201028363534"
-                onCopy={() => message.success("Copy Berhasil!")}
-              >
-                <Button icon={<CopyOutlined />} type="link" />
-              </CopyToClipboard>
+              <Paragraph copyable>667201028363534</Paragraph>
               <br /> a/n Brigita Adha Safira
             </Card>
           </Col>
@@ -677,13 +664,7 @@ const Home: NextPage = (props: any) => {
               bordered
               extra={<img src="/dana-color.png" width={50} alt="" />}
             >
-              0895385026343{" "}
-              <CopyToClipboard
-                text="0895385026343"
-                onCopy={() => message.success("Copy Berhasil!")}
-              >
-                <Button icon={<CopyOutlined />} type="link" />
-              </CopyToClipboard>
+              <Paragraph copyable>0895385026343</Paragraph>
               a/n Yovie Fesya Pratama
               <br />
               <br />

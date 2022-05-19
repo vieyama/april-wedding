@@ -1,12 +1,9 @@
-import { Button, Card, Col, Form, Input, message, Row } from "antd";
-import { useRouter } from "next/router";
+import { Button, Col, Form, Input, message, Row, Space } from "antd";
 import Head from "next/head";
-import React, { useRef, useState } from "react";
-import CopyToClipboard from "react-copy-to-clipboard";
+import React from "react";
 import useCopyToClipboard from "../utils/copyToClipboard";
 const AdminPage = () => {
   const [form] = Form.useForm();
-  const router = useRouter();
   const url = "https://www.brisya-wedding.my.id";
   const [, copy] = useCopyToClipboard();
   return (
@@ -31,12 +28,28 @@ const AdminPage = () => {
             <Form.Item
               name="wa"
               label="Nomor WhatsApp"
-              rules={[{ required: true }]}
+              rules={[{ required: false }]}
             >
               <Input />
             </Form.Item>
 
             <Form.Item>
+              <Button
+                type="primary"
+                onClick={() => {
+                  const urls =
+                    url +
+                    "?to=" +
+                    encodeURIComponent(form.getFieldValue("name"));
+                  copy(urls).then(() => {
+                    message.success("Berhasil tersalin!");
+                  });
+                }}
+                htmlType="submit"
+                style={{ marginRight: 10, marginBottom: 10, width: "100%" }}
+              >
+                Generate Link Only & Copy
+              </Button>
               <Button
                 type="primary"
                 onClick={() => {
@@ -50,11 +63,14 @@ const AdminPage = () => {
                     message.success("Berhasil tersalin!");
                   });
                 }}
+                htmlType="submit"
+                style={{ marginRight: 10, marginBottom: 10, width: "100%" }}
               >
-                Generate Link & Copy
+                Generate Link With Greeting & Copy
               </Button>
               <Button
-                htmlType="button"
+                htmlType="submit"
+                type="primary"
                 onClick={() => {
                   const urls =
                     url +
@@ -67,6 +83,7 @@ const AdminPage = () => {
                   )}&text=${encodeURIComponent(greetings)}`;
                   window?.open(urlShare, "_ blank");
                 }}
+                style={{ marginRight: 10, marginBottom: 10, width: "100%" }}
               >
                 Share to WhatsApp
               </Button>
