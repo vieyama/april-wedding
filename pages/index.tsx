@@ -284,6 +284,7 @@ const Home: NextPage = (props: any) => {
           alt="ss"
           className="flower-img"
           data-aos="zoom-in-up"
+          style={{ width: 170 }}
         />
         <h2
           className="brides"
@@ -383,7 +384,7 @@ const Home: NextPage = (props: any) => {
           <img
             src="/flower.png"
             alt="list"
-            style={{ maxHeight: 100 }}
+            style={{ width: 170 }}
             data-aos="fade-up"
             data-aos-easing="ease-in-back"
             data-aos-delay="300"
@@ -460,6 +461,7 @@ const Home: NextPage = (props: any) => {
           alt="ss"
           className="flower-img"
           data-aos="zoom-in-up"
+          style={{ width: 170 }}
         />
         <h2
           className="brides"
@@ -519,7 +521,7 @@ const Home: NextPage = (props: any) => {
             data-aos-easing="ease-in-back"
             data-aos-delay="300"
           >
-            <blockquote>
+            <blockquote style={{ padding: "0px 10px" }}>
               &quot;Tidak ada solusi yang lebih baik bagi dua insan yang saling
               mencintai di banding pernikahan&quot;
             </blockquote>
@@ -546,6 +548,7 @@ const Home: NextPage = (props: any) => {
           alt="ss"
           className="flower-img"
           data-aos="zoom-in-up"
+          style={{ width: 170 }}
         />
         <h2
           className="brides"
@@ -582,7 +585,9 @@ const Home: NextPage = (props: any) => {
           alt="ss"
           className="flower-img"
           data-aos="zoom-in-up"
+          style={{ width: 170 }}
         />
+        <br />
         <br />
         <GiftOutlined style={{ fontSize: 40 }} data-aos="zoom-in-up" />
         <h2
@@ -856,14 +861,7 @@ const Home: NextPage = (props: any) => {
           />
         </div>
       </section>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <footer>
+      <footer style={{ marginTop: 20 }}>
         <h1 className="footer-end">Brisya&apos;s Wedding</h1>
       </footer>
 
