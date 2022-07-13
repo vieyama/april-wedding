@@ -213,8 +213,8 @@ const Home: NextPage = (props: any) => {
           name="description"
           content="Wedding invitation of Yovie and Brigita."
         />
-        <meta property="og:image" content="/photo_bg.jpeg" key="ogimage" />
-        <meta property="image" content="/photo_bg.jpeg" />
+        <meta property="og:image" content="/footerbg.png" key="ogimage" />
+        <meta property="image" content="/footerbg.png" />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
