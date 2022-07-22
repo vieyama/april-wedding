@@ -429,7 +429,7 @@ const Home: NextPage = (props: any) => {
               <Col lg={12} md={12} sm={24} xs={24} className="date">
                 <br />
                 <FieldTimeOutlined style={{ fontSize: 20 }} />
-                <h2>10:00 WIB</h2>
+                <h2>8.30 WIB</h2>
                 <h2>SELESAI</h2>
               </Col>
               <Col span={24} style={{ marginTop: 20 }}>
