@@ -6,7 +6,6 @@ import {
   GiftOutlined,
   GoogleSquareFilled,
   HeartOutlined,
-  InstagramOutlined,
   QrcodeOutlined,
 } from "@ant-design/icons";
 import {
@@ -28,7 +27,6 @@ import omit from "lodash/omit";
 import HeaderComponent from "components/Header";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import Countdown from "react-countdown";
 import { useEffect, useState } from "react";
 import useSound from "use-sound";
@@ -37,6 +35,7 @@ import getAcronym from "utils/acronym";
 import { filter, isEmpty, toNumber } from "lodash";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+import { wording } from "constants/wording";
 
 const { Paragraph } = Typography;
 const Home: NextPage = (props: any) => {
@@ -78,41 +77,28 @@ const Home: NextPage = (props: any) => {
 
   const data = [
     {
-      img: "/gallery/photo_2022-05-17 10.49.06.jpeg",
+      img: "/gallery/IMG_8557.JPG",
     },
     {
-      img: "/gallery/photo_2022-05-17 10.49.08.jpeg",
+      img: "/gallery/IMG_8558.JPG",
     },
     {
-      img: "/gallery/photo_2022-05-17 10.49.09.jpeg",
+      img: "/gallery/IMG_8559.JPG",
     },
     {
-      img: "/gallery/photo_2022-05-17 10.49.10.jpeg",
+      img: "/gallery/IMG_8560.JPG",
     },
     {
-      img: "/gallery/photo_2022-05-17 10.49.11.jpeg",
+      img: "/gallery/IMG_8566.JPG",
     },
     {
-      img: "/gallery/photo_2022-05-17 10.49.13.jpeg",
+      img: "/gallery/IMG_8578.JPG",
     },
     {
-      img: "/gallery/photo_2022-05-17 10.49.14.jpeg",
+      img: "/gallery/IMG_8611.JPG",
     },
     {
-      img: "/gallery/photo_2022-05-17 10.49.26.jpeg",
-    },
-
-    {
-      img: "/gallery/photo_2022-05-17 10.49.25.jpeg",
-    },
-    {
-      img: "/gallery/photo_2022-05-17 10.49.24.jpeg",
-    },
-    {
-      img: "/gallery/photo_2022-05-17 10.49.21.jpeg",
-    },
-    {
-      img: "/gallery/photo_2022-05-17 10.49.20.jpeg",
+      img: "/gallery/IMG_8662.JPG",
     },
   ];
 
@@ -209,17 +195,14 @@ const Home: NextPage = (props: any) => {
     <div className="container">
       <Head>
         <title>Brisya&apos;s Wedding</title>
-        <meta
-          name="description"
-          content="Wedding invitation of Yovie and Brigita."
-        />
+        <meta name="description" content={wording.desc} />
         <meta
           property="og:image"
           itemProp="image"
-          content="/footerbg.png"
+          content="/photo_bg.jpeg"
           key="ogimage"
         />
-        <meta property="image" itemProp="image" content="/footerbg.png" />
+        <meta property="image" itemProp="image" content="/photo_bg.jpeg" />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -238,7 +221,7 @@ const Home: NextPage = (props: any) => {
       >
         <div className="title-wrapper title-section text-center">
           <img
-            src="/flower.png"
+            src="/flower.svg"
             alt="ss"
             className="flower-img"
             data-aos="zoom-in-up"
@@ -247,11 +230,11 @@ const Home: NextPage = (props: any) => {
             The Wedding Of
           </h2>
           <h1 className="brides-name" data-aos="fade-up">
-            Yovie & Brigita
+            {wording.brideName}
           </h1>
 
           <h4 className="date" data-aos="fade-up">
-            24 Juli 2022
+            {wording.marriedDate}
           </h4>
         </div>
         <div className="custom-shape-divider-bottom-1610288749">
@@ -285,7 +268,7 @@ const Home: NextPage = (props: any) => {
       {/* couple section */}
       <div className="couple-section">
         <img
-          src="/flower.png"
+          src="/flower.svg"
           alt="ss"
           className="flower-img"
           data-aos="zoom-in-up"
@@ -296,7 +279,7 @@ const Home: NextPage = (props: any) => {
           data-aos="fade-up"
           data-aos-anchor-placement="top-bottom"
         >
-          Yovie & Brigita
+          {wording.brideName}
         </h2>
         <p style={{ fontSize: 20 }} data-aos="zoom-in-up">
           Are Getting Married
@@ -313,17 +296,14 @@ const Home: NextPage = (props: any) => {
             data-aos-duration="2000"
             data-aos-delay="300"
           >
-            <img src="/yovie.jpeg" alt="" className="bride-img" />
-            <h2 className="name">Yovie</h2>
-            <h2 className="fullname">Yovie Fesya Pratama</h2>
+            <img src="/man.jpg" alt="" className="bride-img" />
+            <h2 className="name">{wording.groom.nickname}</h2>
+            <h2 className="fullname">{wording.groom.fullName}</h2>
             <p>Putra dari Pasangan</p>
             <b>
-              Bpk. A. Mustofa Yusuf & <br /> Ibu. Titi Idawati
+              Bpk. {wording.groom.parent.father} & <br /> Ibu.{" "}
+              {wording.groom.parent.mother}
             </b>
-            <br />
-            <Link href="https://www.instagram.com/yoviefp33/" passHref>
-              <InstagramOutlined className="link" />
-            </Link>
           </Col>
           <Col
             lg={4}
@@ -357,17 +337,14 @@ const Home: NextPage = (props: any) => {
             data-aos-duration="2000"
             data-aos-delay="300"
           >
-            <img src="/brigita.jpeg" alt="" className="bride-img" />
-            <h2 className="name">Brigita</h2>
-            <h2 className="fullname">Brigita Adha Safira</h2>
+            <img src="/woman.jpg" alt="" className="bride-img" />
+            <h2 className="name">{wording.bride.nickname}</h2>
+            <h2 className="fullname">{wording.bride.fullName}</h2>
             <p>Putri dari Pasangan</p>
             <b>
-              Bpk. Kasim Isharyanto & <br /> Ibu. Sunarsih
+              Bpk. {wording.bride.parent.father} & <br /> Ibu.{" "}
+              {wording.bride.parent.mother}
             </b>
-            <br />
-            <Link href="https://www.instagram.com/brigitaas/" passHref>
-              <InstagramOutlined className="link" />
-            </Link>
           </Col>
         </Row>
       </div>
@@ -376,7 +353,7 @@ const Home: NextPage = (props: any) => {
         className="location"
         style={{
           background:
-            "url('/gallery/photo_2022-05-17 10.49.19.jpeg') center center no-repeat;background-size: cover",
+            "url('/gallery/IMG_8560.JPG') center center no-repeat;background-size: cover",
         }}
       >
         <div className="custom-shape-divider-top-1610288850">
@@ -387,7 +364,7 @@ const Home: NextPage = (props: any) => {
         </div>
         <div className="container py-5">
           <img
-            src="/flower.png"
+            src="/flower.svg"
             alt="list"
             style={{ width: 170 }}
             data-aos="fade-up"
@@ -421,15 +398,16 @@ const Home: NextPage = (props: any) => {
               data-aos-delay="300"
             >
               <Col lg={12} md={12} sm={24} xs={24} className="date">
+                <h2>Akad</h2>
                 <br />
                 <CalendarOutlined style={{ fontSize: 20 }} />
-                <h2>Minggu</h2>
-                <h2>24 Juli 2022</h2>
+                <h2>Rabu</h2>
+                <h2>14 september 2022</h2>
               </Col>
               <Col lg={12} md={12} sm={24} xs={24} className="date">
                 <br />
                 <FieldTimeOutlined style={{ fontSize: 20 }} />
-                <h2>8.30 WIB</h2>
+                <h2>9.00 WIB</h2>
                 <h2>SELESAI</h2>
               </Col>
               <Col span={24} style={{ marginTop: 20 }}>
@@ -443,10 +421,44 @@ const Home: NextPage = (props: any) => {
                 />
                 <br />
                 <br />
-                <h2 className="address">
-                  Kediaman Mempelai Wanita <br /> Jl. Rambutan RT. 01, RW. 02
-                  Desa Pedasong, Adipala, Cilacap, Jawa Tengah
-                </h2>
+                <h2 className="address">Kediaman Mempelai Wanita</h2>
+              </Col>
+            </Row>
+            <Row
+              style={{
+                border: "1px solid",
+                margin: 30,
+                borderRadius: 15,
+                padding: 20,
+              }}
+              data-aos="fade-up"
+              data-aos-easing="ease-in-back"
+              data-aos-delay="300"
+            >
+              <Col lg={12} md={12} sm={24} xs={24} className="date">
+                <h2>Resepsi</h2>
+                <br />
+                <CalendarOutlined style={{ fontSize: 20 }} />
+                <h2>Sabtu</h2>
+                <h2>26 November 2022</h2>
+              </Col>
+              <Col lg={12} md={12} sm={24} xs={24} className="date">
+                <br />
+                <FieldTimeOutlined style={{ fontSize: 20 }} />
+                <h2>12.00 WIB - 14.00 WIB</h2>
+              </Col>
+              <Col span={24} style={{ marginTop: 20 }}>
+                <HeartOutlined
+                  style={{
+                    background: "#ff5f7b",
+                    borderRadius: 20,
+                    padding: 10,
+                    fontSize: 20,
+                  }}
+                />
+                <br />
+                <br />
+                <h2 className="address">Hotel Wisata Niaga Purwokerto</h2>
               </Col>
             </Row>
           </div>
@@ -462,7 +474,7 @@ const Home: NextPage = (props: any) => {
       {/* couple section */}
       <div className="couple-section">
         <img
-          src="/flower.png"
+          src="/flower.svg"
           alt="ss"
           className="flower-img"
           data-aos="zoom-in-up"
@@ -506,7 +518,7 @@ const Home: NextPage = (props: any) => {
         className="parallax text-center mt-5"
         style={{
           background:
-            "url('/gallery/photo_2022-05-17 10.49.19.jpeg') center no-repeat; background-size: cover",
+            "url('/gallery/IMG_8560.JPG') center no-repeat; background-size: cover",
           height: "45vh",
           display: "flex",
           alignItems: "center",
@@ -549,7 +561,7 @@ const Home: NextPage = (props: any) => {
         data-aos-delay="300"
       >
         <img
-          src="/flower.png"
+          src="/flower.svg"
           alt="ss"
           className="flower-img"
           data-aos="zoom-in-up"
@@ -567,14 +579,14 @@ const Home: NextPage = (props: any) => {
         <br />
         <Space>
           <a
-            href="https://goo.gl/maps/djg8yQqGe2Fxkhke6"
+            href="https://www.google.com/maps/place/Hotel+Wisata+Niaga+Purwokerto,+Jl.+Merdeka+No.5,+Brubahan,+Purwanegara,+Kec.+Purwokerto+Tim.,+Kabupaten+Banyumas,+Jawa+Tengah+53116/@-7.4253125,109.2367758,17z/data=!4m12!1m6!3m5!1s0x2e655f8067c215d1:0xd03268861d153ea7!2sLINK+COFFEE,+Jl.+Merdeka+No.9,+Brubahan,+Purwanegara,+Kec.+Purwokerto+Tim.,+Kabupaten+Banyumas,+Jawa+Tengah+53116!8m2!3d-7.4250037!4d109.2370906!3m4!1s0x2e655e8838fc674f:0xc37196ebd9e1387b!8m2!3d-7.4253125!4d109.2367758?hl=id-vn"
             target="_blank"
             rel="noreferrer"
           >
             <Button icon={<EnvironmentFilled />}>Open Google Map</Button>
           </a>
           <a
-            href="https://calendar.google.com/calendar/u/0/r/eventedit?dates=20220722T100000/20220722T200000&ctz=Asia/Jakarta&text=Yovie+%26+Brigita+Wedding&details=Yovie+%26+Brigita+Wedding+on+Sunday,+22+July+2022&location=Jl.+Rambutan+RT.001/RW.002+Desa+Pedasong,+Adipala,+Cilacap,+Jawa+Tengah&sprop&sprop=name:"
+            href="https://calendar.google.com/calendar/u/0/r/eventedit?dates=20220722T100000/20220722T200000&ctz=Asia/Jakarta&text=Andhika+%26+Aprilia+Wedding&details=Andhika+%26+Aprilia+Wedding+on+Saturday,+26+November+2022&location=Wisata%20Niaga%20Hotel,%20Jl.%20Merdeka%20No.5,%20Brubahan,%20Purwanegara,%20Kec.%20Purwokerto%20Tim.,%20Kabupaten%20Banyumas,%20Jawa%20Tengah%2053116,%20Indonesia&sprop&sprop=name:"
             target="_blank"
             rel="noreferrer"
           >
@@ -586,7 +598,7 @@ const Home: NextPage = (props: any) => {
       {/* couple section */}
       <div className="couple-section">
         <img
-          src="/flower.png"
+          src="/flower.svg"
           alt="ss"
           className="flower-img"
           data-aos="zoom-in-up"
@@ -611,8 +623,8 @@ const Home: NextPage = (props: any) => {
         >
           Tanpa mengurangi rasa hormat, untuk melengkapi kebahagiaan pengantin,
           Anda dapat memberikan tanda kasih dengan transfer ke rekening atau
-          mengirimkan kado ke alamat berikut : Jl. Rambutan RT. 01, RW. 02 Desa
-          Pedasong, Adipala, Cilacap, Jawa Tengah
+          mengirimkan kado ke alamat berikut : Perumahan bukit sidabowa Asri J12
+          kel.sidabowa Kec. Patikaraja Kab. Banyumas
         </h3>
         <br />
         <Row
@@ -628,44 +640,15 @@ const Home: NextPage = (props: any) => {
               className="giftCard bca"
               bordered
               extra={
-                <img src="https://menica.pro/img/logos/logo-bca.png" alt="" />
+                <img
+                  src="https://yt3.ggpht.com/wPRw-wSXd4ZT0BmP7tME32UydRbkA2bjQQdwvF-fmBvDDc9GU9vnUnqHX_zdSlv34f5JF9HuZw=s900-c-k-c0x00ffffff-no-rj"
+                  alt=""
+                  width={50}
+                />
               }
             >
-              <Paragraph copyable>0462485776</Paragraph>
-              a/n Yovie Fesya Pratama
-              <br />
-              <br />
-              <Button
-                type="primary"
-                icon={<QrcodeOutlined />}
-                onClick={() => showModal("bca")}
-                shape="round"
-                style={{ width: "100%" }}
-              >
-                Buka QR Code
-              </Button>
-              <Modal
-                title=""
-                closable={false}
-                visible={isModalVisible}
-                onCancel={handleCancel}
-                footer={null}
-                centered
-              >
-                <Image src={displayModal} alt="brisya" preview={false} />
-              </Modal>
-            </Card>
-          </Col>
-          <Col lg={8} md={12} sm={24} xs={24}>
-            <Card
-              className="giftCard bri"
-              bordered
-              extra={
-                <img src="https://menica.pro/img/logos/logo-bri.png" alt="" />
-              }
-            >
-              <Paragraph copyable>667201028363534</Paragraph>
-              <br /> a/n Brigita Adha Safira
+              <Paragraph copyable>1800002911057</Paragraph>
+              a/n Aprilia dwi jayanti
             </Card>
           </Col>
           <Col lg={8} md={12} sm={24} xs={24}>
@@ -674,19 +657,8 @@ const Home: NextPage = (props: any) => {
               bordered
               extra={<img src="/dana-color.png" width={50} alt="" />}
             >
-              <Paragraph copyable>0895385026343</Paragraph>
-              a/n Yovie Fesya Pratama
-              <br />
-              <br />
-              <Button
-                type="primary"
-                icon={<QrcodeOutlined />}
-                onClick={() => showModal("dana")}
-                shape="round"
-                style={{ width: "100%" }}
-              >
-                Buka QR Code
-              </Button>
+              <Paragraph copyable>081575087606</Paragraph>
+              a/n Aprilia dwi jayanti
             </Card>
           </Col>
         </Row>
@@ -710,7 +682,7 @@ const Home: NextPage = (props: any) => {
         </div>
         <div className="container py-5">
           <img
-            src="/flower.png"
+            src="/flower.svg"
             alt="list"
             style={{ maxHeight: 100 }}
             data-aos="fade-up"
@@ -773,12 +745,6 @@ const Home: NextPage = (props: any) => {
                     <Radio.Group>
                       <Radio value={true}>Hadir</Radio>
                       <Radio value={false}>Tidak Hadir</Radio>
-                    </Radio.Group>
-                  </Form.Item>
-                  <Form.Item name="countGuest" label="Jumlah Tamu">
-                    <Radio.Group>
-                      <Radio value="1">1</Radio>
-                      <Radio value="2">2</Radio>
                     </Radio.Group>
                   </Form.Item>
 
@@ -844,7 +810,7 @@ const Home: NextPage = (props: any) => {
       <br />
 
       <section
-        style={{ background: "url(/footerbg.png)" }}
+        style={{ background: "url(/gallery/IMG_8578.JPG)" }}
         className="curved page-holder aos-init footer-bg aos-animate"
         id="particles-js"
         data-aos="fade-zoom-in"
@@ -856,7 +822,7 @@ const Home: NextPage = (props: any) => {
             Best Regards,
           </h2>
           <h1 className="brides-name aos-init aos-animate" data-aos="fade-up">
-            Yovie &amp; Brigita
+            {wording.brideName}
           </h1>
         </div>
         <div className="custom-shape-divider-bottom-1610288749">
@@ -866,8 +832,8 @@ const Home: NextPage = (props: any) => {
           />
         </div>
       </section>
-      <footer style={{ marginTop: 20 }}>
-        <h1 className="footer-end">Brisya&apos;s Wedding</h1>
+      <footer style={{ marginTop: 50 }}>
+        <h4 className="footer-end">Made with love by Brisya Dev</h4>
       </footer>
 
       <button className="float" onClick={() => setPlayMusic(!playMusic)}>
