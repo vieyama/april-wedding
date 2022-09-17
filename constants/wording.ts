@@ -1,5 +1,5 @@
 export const wording = {
-  title: "Brisya&apos;s Wedding",
+  title: "April & Andhika Wedding",
   desc: "Wedding invitation of Yovie and Brigita.",
   brideName: "Andhika & Aprilia",
   marriedTime: "8.30",

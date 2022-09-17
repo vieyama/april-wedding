@@ -18,7 +18,7 @@ const HeaderComponent = ({ setPlayMusic, playMusic = false }: any) => {
     <div className="header-section" ref={headerRef}>
       <div className="title-wrapper text-center" data-aos="fade-up">
         <div>
-          <img src="/flower.svg" alt="ss" className="flower-img" />
+          <img src="/flower.png" alt="ss" className="flower-img" />
           <h2 className="greeting">
             Hello, You&apos;re Invited <br />
             The Wedding Of

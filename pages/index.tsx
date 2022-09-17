@@ -194,7 +194,7 @@ const Home: NextPage = (props: any) => {
   return (
     <div className="container">
       <Head>
-        <title>Brisya&apos;s Wedding</title>
+        <title>{wording.title}</title>
         <meta name="description" content={wording.desc} />
         <meta
           property="og:image"
@@ -221,7 +221,7 @@ const Home: NextPage = (props: any) => {
       >
         <div className="title-wrapper title-section text-center">
           <img
-            src="/flower.svg"
+            src="/flower.png"
             alt="ss"
             className="flower-img"
             data-aos="zoom-in-up"
@@ -258,9 +258,8 @@ const Home: NextPage = (props: any) => {
           <p>
             Dengan memohon Ridho dan Rahmat Allah SWT. Ya Allah, dengan segala
             kemurahan hati-Mu, kami hendak memohon Ridha-Mu, dan melaksanakan
-            Sunnah Rasul-Mu, untuk menyelenggarakan acara pernikahan putra dan
-            putri kami, untuk membentuk keluarga yang sakinah, mawaddah,
-            warahmah.
+            Sunnah Rasul-Mu, untuk menyelenggarakan acara pernikahan kami, untuk
+            membentuk keluarga yang sakinah, mawaddah, warahmah.
           </p>
         </div>
       </div>
@@ -268,7 +267,7 @@ const Home: NextPage = (props: any) => {
       {/* couple section */}
       <div className="couple-section">
         <img
-          src="/flower.svg"
+          src="/flower.png"
           alt="ss"
           className="flower-img"
           data-aos="zoom-in-up"
@@ -364,7 +363,7 @@ const Home: NextPage = (props: any) => {
         </div>
         <div className="container py-5">
           <img
-            src="/flower.svg"
+            src="/flower.png"
             alt="list"
             style={{ width: 170 }}
             data-aos="fade-up"
@@ -474,7 +473,7 @@ const Home: NextPage = (props: any) => {
       {/* couple section */}
       <div className="couple-section">
         <img
-          src="/flower.svg"
+          src="/flower.png"
           alt="ss"
           className="flower-img"
           data-aos="zoom-in-up"
@@ -561,7 +560,7 @@ const Home: NextPage = (props: any) => {
         data-aos-delay="300"
       >
         <img
-          src="/flower.svg"
+          src="/flower.png"
           alt="ss"
           className="flower-img"
           data-aos="zoom-in-up"
@@ -598,7 +597,7 @@ const Home: NextPage = (props: any) => {
       {/* couple section */}
       <div className="couple-section">
         <img
-          src="/flower.svg"
+          src="/flower.png"
           alt="ss"
           className="flower-img"
           data-aos="zoom-in-up"
@@ -682,7 +681,7 @@ const Home: NextPage = (props: any) => {
         </div>
         <div className="container py-5">
           <img
-            src="/flower.svg"
+            src="/flower.png"
             alt="list"
             style={{ maxHeight: 100 }}
             data-aos="fade-up"
