@@ -6,7 +6,6 @@ import {
   GiftOutlined,
   GoogleSquareFilled,
   HeartOutlined,
-  QrcodeOutlined,
 } from "@ant-design/icons";
 import {
   Button,
@@ -14,7 +13,6 @@ import {
   Col,
   Image,
   List,
-  Modal,
   Row,
   Space,
   Form,
@@ -134,18 +132,6 @@ const Home: NextPage = (props: any) => {
         </Row>
       );
     }
-  };
-
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [displayModal, setDisplayModal] = useState("");
-  const showModal = (type?: any) => {
-    setIsModalVisible(true);
-    const src = type === "bca" ? "/bca.jpg" : "dana.jpg";
-    setDisplayModal(src);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
   };
 
   const [playMusic, setPlayMusic] = useState(false);
