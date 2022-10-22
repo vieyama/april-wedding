@@ -4,7 +4,7 @@ import React from "react";
 import useCopyToClipboard from "../utils/copyToClipboard";
 const AdminPage = () => {
   const [form] = Form.useForm();
-  const url = "https://www.brisya-wedding.my.id";
+  const url = "https://www.april-andhika-wedding.my.id";
   const [, copy] = useCopyToClipboard();
   return (
     <div className="container">
@@ -57,8 +57,8 @@ const AdminPage = () => {
                     url +
                     "?to=" +
                     encodeURIComponent(form.getFieldValue("name"));
-                  const greetings: string = `Bismillahirrahmanirrahim\nAssalamu'alaikum Warahmatullahi wabarakatuh\n\nTanpa mengurangi rasa hormat, melalui undangan ini kami memohon doa restu sekaligus mengundang Bapak/Ibu/Saudara/i untuk menghadiri Resepsi pernikahan kami yang Insya Allah akan dilaksanakan pada hari :\nMinggu, 24 Juli 2022\n\nBersama dengan ini kami sertakan undangan pernikahan kami secara virtual.\nLink undangan:\n\n${urls}
-                \nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dengan mengikuti protokol kesehatan pencegahan penyebaran Covid-19.\nAtas perhatiannya, kami mengucapkan terima kasih.\n\nWassalamu'alaikum Warahmatullahi Wabarakatuh\n\nSalam,\nYovie & Brigita`;
+                  const greetings: string = `Bismillahirrahmanirrahim\nAssalamu'alaikum Warahmatullahi wabarakatuh\n\nTanpa mengurangi rasa hormat, melalui undangan ini kami memohon doa restu sekaligus mengundang Bapak/Ibu/Saudara/i untuk menghadiri Resepsi pernikahan kami yang Insya Allah akan dilaksanakan pada hari :\nSabtu, 26 November 2022\n\nBersama dengan ini kami sertakan undangan pernikahan kami secara virtual.\nLink undangan:\n\n${urls}
+                \nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dengan mengikuti protokol kesehatan pencegahan penyebaran Covid-19.\nAtas perhatiannya, kami mengucapkan terima kasih.\n\nWassalamu'alaikum Warahmatullahi Wabarakatuh\n\nSalam,\nApril & Andhika`;
                   copy(greetings).then(() => {
                     message.success("Berhasil tersalin!");
                   });
@@ -84,7 +84,7 @@ const AdminPage = () => {
                     url +
                     "?to=" +
                     encodeURIComponent(form.getFieldValue("name"));
-                  const greetings: string = `Bismillahirrahmanirrahim\nAssalamu'alaikum Warahmatullahi wabarakatuh\n\nTanpa mengurangi rasa hormat, melalui undangan ini kami memohon doa restu sekaligus mengundang Bapak/Ibu/Saudara/i untuk menghadiri Resepsi pernikahan kami yang Insya Allah akan dilaksanakan pada hari :\nMinggu, 24 Juli 2022\n\nBersama dengan ini kami sertakan undangan pernikahan kami secara virtual.\nLink undangan:\n\n${urls}
+                  const greetings: string = `Bismillahirrahmanirrahim\nAssalamu'alaikum Warahmatullahi wabarakatuh\n\nTanpa mengurangi rasa hormat, melalui undangan ini kami memohon doa restu sekaligus mengundang Bapak/Ibu/Saudara/i untuk menghadiri Resepsi pernikahan kami yang Insya Allah akan dilaksanakan pada hari :\nSabtu, 26 November 2022\n\nBersama dengan ini kami sertakan undangan pernikahan kami secara virtual.\nLink undangan:\n\n${urls}
                   \nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dengan mengikuti protokol kesehatan pencegahan penyebaran Covid-19.\nAtas perhatiannya, kami mengucapkan terima kasih.\n\nWassalamu'alaikum Warahmatullahi Wabarakatuh\n\nSalam,\nYovie & Brigita`;
                   const urlShare = `https://api.whatsapp.com/send?phone=${waNumberReplaced}&text=${encodeURIComponent(
                     greetings

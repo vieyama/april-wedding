@@ -238,14 +238,14 @@ const Home: NextPage = (props: any) => {
         data-aos-duration="2000"
         data-aos-delay="300"
       >
-        <h3 className="title">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</h3>
+        <h2 className="title">
+          Assalamu&apos;alaikum Warrahmatullahi Wabarakatuh
+        </h2>
         <div className="protocol-text">
-          <i>Assalamu&apos;alaikum Warrahmatullahi Wabarakatuh</i>
           <p>
-            Dengan memohon Ridho dan Rahmat Allah SWT. Ya Allah, dengan segala
-            kemurahan hati-Mu, kami hendak memohon Ridha-Mu, dan melaksanakan
-            Sunnah Rasul-Mu, untuk menyelenggarakan acara pernikahan kami, untuk
-            membentuk keluarga yang sakinah, mawaddah, warahmah.
+            Tanpa mengurangi rasa hormat, kami bermaksud mengundang
+            bapak/ibu/saudara/saudari untuk menghadiri acara resepsi pernikahan
+            kami.
           </p>
         </div>
       </div>
@@ -560,7 +560,7 @@ const Home: NextPage = (props: any) => {
           Time To Happy Day
         </h2>
         {/* @ts-ignore */}
-        <Countdown date={new Date("2022-07-24")} renderer={renderer} />
+        <Countdown date={new Date("2022-11-26")} renderer={renderer} />
         <br />
         <Space>
           <a
