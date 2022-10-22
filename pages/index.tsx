@@ -49,30 +49,6 @@ const Home: NextPage = (props: any) => {
     getData();
   }, []);
 
-  // const protocolData = [
-  //   {
-  //     img: "/protocol-covid/002-soap.png",
-  //     text: "Para tamu wajib mencuci tangan atau menggunakan hand sanitizer sebelum memasuki area resepsi.",
-  //   },
-  //   {
-  //     img: "/protocol-covid/001-mask.png",
-  //     text: "Wajib menggunakan masker selama acara berlangsung.",
-  //   },
-  //   {
-  //     img: "/protocol-covid/003-immune-system.png",
-  //     text: "Tidak memiliki riwayat berkontak dengan pasien COVID-19.",
-  //   },
-  //   {
-  //     img: "/protocol-covid/004-distance.png",
-  //     text: "Saling menjaga jarak ketika menghadiri acara.",
-  //   },
-  //   {
-  //     img: "/protocol-covid/005-thermometer.png",
-  //     text: "Cek suhu ketika hendak memasuki ruangan acara.",
-  //   },
-  //   { img: "/protocol-covid/006-group.png", text: "Dilarang berkerumun." },
-  // ];
-
   const data = [
     {
       img: "/gallery/IMG_8557.JPG",
@@ -622,13 +598,13 @@ const Home: NextPage = (props: any) => {
         >
           <Col lg={8} md={12} sm={24} xs={24}>
             <Card
-              className="giftCard bca"
+              className="giftCard mandiri"
               bordered
               extra={
                 <img
-                  src="https://yt3.ggpht.com/wPRw-wSXd4ZT0BmP7tME32UydRbkA2bjQQdwvF-fmBvDDc9GU9vnUnqHX_zdSlv34f5JF9HuZw=s900-c-k-c0x00ffffff-no-rj"
+                  src="https://www.bankmandiri.co.id/documents/20143/44881086/ag-branding-logo-1.png/842d8cf8-b7fb-3014-9620-21f0f88d8377?t=1623309819034"
                   alt=""
-                  width={50}
+                  width={100}
                 />
               }
             >
